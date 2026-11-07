@@ -1,67 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Wellness & Health Products | Honest Reviews</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #f0f8f0; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; padding: 40px 20px; text-align: center; }
-        h1 { font-size: 2rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.1rem; opacity: 0.9; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-card h2 { color: #2E7D32; margin-bottom: 12px; font-size: 1.3rem; }
-        .product-card p { color: #666; margin-bottom: 15px; }
-        .btn { display: inline-block; background: #4CAF50; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-        .btn:hover { background: #45a049; }
-        .disclaimer { margin-top: 50px; padding: 20px; background: #e8f5e9; border-radius: 8px; font-size: 0.9rem; color: #555; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure Vitality — Honest Natural Wellness Reviews</title>
+<meta name="description" content="Honest, real reviews of natural wellness products — Matcha Extreme, Fat Burn Active, Bulk Extreme, African Mango and more. Tested, reviewed, shared honestly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6f0;
+    --cream-2:#f3ece1;
+    --ink:#1f2a24;
+    --ink-soft:#5a6b60;
+    --forest:#1e3d2f;
+    --forest-2:#2c5440;
+    --sage:#8fae9a;
+    --gold:#c08a4e;
+    --gold-soft:#e8cfa8;
+    --white:#ffffff;
+    --shadow-sm:0 2px 12px rgba(30,61,47,.08);
+    --shadow-md:0 12px 40px rgba(30,61,47,.14);
+    --shadow-lg:0 24px 60px rgba(30,61,47,.2);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;font-weight:600;line-height:1.15;color:var(--forest)}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;
+    transition:all .35s ease;
+    background:rgba(250,246,240,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(30,61,47,.06);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--forest)}
+  .logo-mark{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--forest-2),var(--sage));display:grid;place-items:center}
+  .logo-mark svg{width:18px;height:18px;fill:var(--cream)}
+  .nav-links{display:flex;gap:32px;font-size:.92rem;font-weight:500;color:var(--ink-soft)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--forest)}
+  .nav-cta{
+    background:var(--forest);color:var(--cream);
+    padding:10px 22px;border-radius:999px;font-size:.88rem;font-weight:600;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--forest-2);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:140px 0 90px;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 10%, rgba(143,174,154,.25), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 5% 90%, rgba(192,138,78,.12), transparent 60%),
+      var(--cream);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--white);border:1px solid rgba(30,61,47,.12);
+    padding:7px 16px;border-radius:999px;
+    font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forest-2);
+    box-shadow:var(--shadow-sm);
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);margin:22px 0 20px;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:520px;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn-primary{
+    background:var(--forest);color:var(--cream);
+    padding:15px 32px;border-radius:999px;font-weight:600;font-size:.98rem;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:all .3s;box-shadow:0 8px 24px rgba(30,61,47,.25);
+  }
+  .btn-primary:hover{background:var(--forest-2);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .btn-primary svg{width:16px;height:16px;fill:currentColor;transition:transform .3s}
+  .btn-primary:hover svg{transform:translateX(4px)}
+  .btn-ghost{
+    color:var(--forest);font-weight:600;font-size:.98rem;
+    display:inline-flex;align-items:center;gap:8px;
+    border-bottom:2px solid var(--gold-soft);padding-bottom:3px;
+    transition:border-color .2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold)}
+
+  /* hero visual — pure CSS product composition */
+  .hero-visual{position:relative;height:440px}
+  @media(max-width:900px){.hero-visual{height:360px;max-width:440px;margin:0 auto}}
+  .ring{
+    position:absolute;inset:0;margin:auto;
+    width:340px;height:340px;border-radius:50%;
+    background:conic-gradient(from 140deg, var(--forest-2), var(--sage), var(--gold-soft), var(--forest-2));
+    filter:blur(1px);opacity:.9;
+    animation:spin 24s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .ring-inner{
+    position:absolute;inset:0;margin:auto;
+    width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #eef4ee, var(--cream-2));
+    box-shadow:inset 0 0 40px rgba(30,61,47,.08), var(--shadow-lg);
+    display:grid;place-items:center;
+  }
+  .ring-inner svg.leaf{width:110px;height:110px;fill:var(--forest-2);opacity:.85}
+  .float-card{
+    position:absolute;background:var(--white);border-radius:14px;
+    padding:14px 18px;box-shadow:var(--shadow-md);
+    display:flex;align-items:center;gap:12px;
+    animation:float 5s ease-in-out infinite;
+  }
+  .float-card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+  .float-card .ic svg{width:20px;height:20px;fill:white}
+  .float-card .t{font-size:.82rem;font-weight:600;color:var(--forest);line-height:1.2}
+  .float-card .s{font-size:.72rem;color:var(--ink-soft)}
+  .fc1{top:6%;left:-4%;animation-delay:0s}
+  .fc1 .ic{background:linear-gradient(135deg,#7ba88a,var(--forest-2))}
+  .fc2{bottom:10%;right:-2%;animation-delay:1.2s}
+  .fc2 .ic{background:linear-gradient(135deg,#d4a56a,var(--gold))}
+  .fc3{bottom:-4%;left:14%;animation-delay:2.4s}
+  .fc3 .ic{background:linear-gradient(135deg,#a8c4b4,var(--sage))}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--forest);color:var(--cream);padding:34px 0}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  @media(max-width:760px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+  .trust-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .trust-item svg{width:26px;height:26px;fill:var(--gold-soft)}
+  .trust-item span{font-size:.86rem;font-weight:500;opacity:.92}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:90px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .sec-head .kicker{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:14px}
+  .sec-head p{color:var(--ink-soft);font-size:1.02rem}
+
+  /* ---------- FEATURED PRODUCT ---------- */
+  .featured{background:var(--white);border-radius:28px;box-shadow:var(--shadow-md);overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr}
+  @media(max-width:900px){.featured{grid-template-columns:1fr}}
+  .feat-visual{
+    position:relative;
+    background:linear-gradient(160deg,#2c5440 0%,#1e3d2f 60%,#163025 100%);
+    min-height:420px;display:grid;place-items:center;overflow:hidden;
+  }
+  .feat-visual::before{
+    content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(192,138,78,.35),transparent 70%);
+    top:-60px;right:-60px;
+  }
+  .feat-badge{
+    position:absolute;top:24px;left:24px;
+    background:var(--gold);color:white;font-size:.72rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;
+  }
+  .feat-product{
+    position:relative;text-align:center;color:var(--cream);
+  }
+  .feat-product .jar{
+    width:150px;height:190px;margin:0 auto 20px;border-radius:20px 20px 26px 26px;
+    background:linear-gradient(180deg,#3d6b52,#244a37);
+    border:2px solid rgba(255,255,255,.15);
+    box-shadow:0 20px 50px rgba(0,0,0,.4), inset 0 2px 6px rgba(255,255,255,.15);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    position:relative;
+  }
+  .feat-product .jar::before{
+    content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    width:110px;height:22px;border-radius:6px;background:linear-gradient(180deg,#c08a4e,#9c6a35);
+  }
+  .feat-product .jar svg{width:44px;height:44px;fill:var(--gold-soft)}
+  .feat-product .jar .jt{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700}
+  .feat-product .jar .js{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+  .feat-product h3{color:var(--cream);font-size:1.6rem;margin-bottom:6px}
+  .feat-product .stars{display:flex;gap:3px;justify-content:center;margin-bottom:6px}
+  .feat-product .stars svg{width:16px;height:16px;fill:var(--gold)}
+  .feat-product .rating{font-size:.82rem;opacity:.8}
+
+  .feat-body{padding:52px 48px}
+  @media(max-width:600px){.feat-body{padding:36px 28px}}
+  .feat-body .cat{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .feat-body h2{font-size:2rem;margin-bottom:16px}
+  .feat-body > p{color:var(--ink-soft);margin-bottom:24px;font-size:1rem}
+  .feat-benefits{list-style:none;margin-bottom:30px;display:grid;gap:12px}
+  .feat-benefits li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem}
+  .feat-benefits .check{width:22px;height:22px;border-radius:50%;background:var(--sage);flex-shrink:0;display:grid;place-items:center;margin-top:2px}
+  .feat-benefits .check svg{width:12px;height:12px;fill:white}
+  .feat-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- PRODUCT GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+  .pcard{
+    background:var(--white);border-radius:var(--radius);padding:32px 28px;
+    box-shadow:var(--shadow-sm);border:1px solid rgba(30,61,47,.06);
+    transition:all .35s cubic-bezier(.2,.8,.2,1);
+    position:relative;overflow:hidden;
+  }
+  .pcard::after{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--forest-2),var(--sage));
+    transform:scaleX(0);transform-origin:left;transition:transform .4s;
+  }
+  .pcard:hover{transform:translateY(-8px);box-shadow:var(--shadow-md)}
+  .pcard:hover::after{transform:scaleX(1)}
+  .pcard .picon{
+    width:56px;height:56px;border-radius:16px;display:grid;place-items:center;margin-bottom:20px;
+  }
+  .pcard .picon svg{width:28px;height:28px;fill:white}
+  .pcard.m1 .picon{background:linear-gradient(135deg,#7ba88a,#2c5440)}
+  .pcard.m2 .picon{background:linear-gradient(135deg,#e07a5f,#c0563a)}
+  .pcard.m3 .picon{background:linear-gradient(135deg,#6b8cae,#3a5a7c)}
+  .pcard.m4 .picon{background:linear-gradient(135deg,#e8a87c,#c97b3f)}
+  .pcard .ptag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .pcard h3{font-size:1.3rem;margin-bottom:10px}
+  .pcard p{font-size:.92rem;color:var(--ink-soft);margin-bottom:22px}
+  .pcard .plink{
+    display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--forest);
+    border-bottom:2px solid transparent;transition:all .2s;
+  }
+  .pcard .plink svg{width:14px;height:14px;fill:currentColor;transition:transform .25s}
+  .pcard:hover .plink{border-color:var(--gold)}
+  .pcard:hover .plink svg{transform:translateX(4px)}
+
+  /* ---------- ABOUT / QUOTE ---------- */
+  .about{background:var(--forest);color:var(--cream);border-radius:28px;padding:64px 56px;position:relative;overflow:hidden}
+  @media(max-width:600px){.about{padding:40px 28px}}
+  .about::before{
+    content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(192,138,78,.25),transparent 70%);
+    bottom:-120px;right:-80px;
+  }
+  .about-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;position:relative}
+  @media(max-width:700px){.about-grid{grid-template-columns:1fr;text-align:center}}
+  .avatar{
+    width:110px;height:110px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),#9c6a35);
+    display:grid;place-items:center;
+    font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:white;
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+    margin:0 auto;
+  }
+  .about blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;line-height:1.5;margin-bottom:16px;color:#f0eadf}
+  .about .who{font-size:.9rem;opacity:.75}
+  .about .who strong{color:var(--gold-soft)}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:linear-gradient(135deg,var(--cream-2),#e8ddd0);
+    border-radius:28px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-banner h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:14px}
+  .cta-banner p{color:var(--ink-soft);max-width:520px;margin:0 auto 30px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--forest);color:rgba(250,246,240,.75);padding:56px 0 32px;margin-top:90px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer .logo{color:var(--cream);margin-bottom:14px}
+  footer p{font-size:.88rem;line-height:1.7}
+  footer h4{color:var(--cream);font-size:.95rem;margin-bottom:16px;font-weight:600}
+  footer ul{list-style:none;display:grid;gap:10px;font-size:.88rem}
+  footer ul a:hover{color:var(--gold-soft)}
+  .disclaimer{
+    border-top:1px solid rgba(250,246,240,.12);padding-top:24px;
+    font-size:.78rem;line-height:1.7;opacity:.7;
+  }
+  .copyright{text-align:center;margin-top:24px;font-size:.8rem;opacity:.6}
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
 </head>
 <body>
-    <header>
-        <h1>🌿 Natural Wellness & Honest Reviews</h1>
-        <p class="subtitle">Real experiences with products that support your health journey</p>
-    </header>
 
-    <div class="container">
-        <div class="products-grid">
-            
-            <!-- Matcha Extreme -->
-            <div class="product-card">
-                <h2>🍵 Matcha Extreme</h2>
-                <p>Clean steady energy all day, metabolism support, rich in antioxidants.</p>
-                <a href="matcha-extreme.html" class="btn">Read My Review →</a>
-            </div>
-
-            <!-- Fat Burn Active -->
-            <div class="product-card">
-                <h2>🔥 Fat Burn Active</h2>
-                <p>Natural weight management support, boosts metabolism gently.</p>
-                <a href="fat-burn-active.html" class="btn">Read My Review →</a>
-            </div>
-
-            <!-- Bulk Extreme -->
-            <div class="product-card">
-                <h2>💪 Bulk Extreme</h2>
-                <p>Supports muscle building, workout performance & recovery.</p>
-                <a href="bulk-extreme.html" class="btn">Read My Review →</a>
-            </div>
-
-            <!-- African Mango -->
-            <div class="product-card">
-                <h2>🥭 African Mango</h2>
-                <p>Supports healthy weight management & natural fat metabolism.</p>
-                <a href="african-mango.html" class="btn">Read My Review →</a>
-            </div>
-        </div>
-
-        <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> This page contains affiliate links — if you purchase, I earn a small commission at no extra cost to you. Results may vary. Not a substitute for professional medical advice.</p>
-        </div>
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+      </span>
+      Pure Vitality
+    </a>
+    <div class="nav-links">
+      <a href="#reviews">Reviews</a>
+      <a href="#featured">Featured</a>
+      <a href="#about">About</a>
     </div>
+    <a href="#reviews" class="nav-cta">Explore Products</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Honest wellness reviews, no fluff</span>
+      <h1>Natural products that <em>actually</em> work — tested & reviewed honestly.</h1>
+      <p class="lead">I try the supplements, I read the labels, and I share the real results. No sponsored hype — just what helped me on my own wellness journey.</p>
+      <div class="hero-ctas">
+        <a href="#featured" class="btn-primary">
+          See my top pick
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#reviews" class="btn-ghost">Browse all reviews →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ring"></div>
+      <div class="ring-inner">
+        <svg class="leaf" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+      </div>
+      <div class="float-card fc1">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <div><div class="t">Steady Energy</div><div class="s">No jitters, no crash</div></div>
+      </div>
+      <div class="float-card fc2">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 9 6 13a6 6 0 0012 0c0-4-2-7-6-11z"/></svg></span>
+        <div><div class="t">Natural Formula</div><div class="s">Clean ingredients</div></div>
+      </div>
+      <div class="float-card fc3">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></span>
+        <div><div class="t">Real Results</div><div class="s">Tested personally</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-2 16l-4-4 1.4-1.4L10 14.2l6.6-6.6L18 9l-8 8z"/></svg>
+      <span>100% honest reviews</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg>
+      <span>Lab-verified brands only</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z"/></svg>
+      <span>Natural ingredients</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      <span>Backed by real results</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED PRODUCT -->
+<section class="section" id="featured">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Editor's Pick</div>
+      <h2>My #1 recommendation right now</h2>
+      <p>The product I keep coming back to — and the one that made the biggest difference for me.</p>
+    </div>
+
+    <div class="featured reveal">
+      <div class="feat-visual">
+        <span class="feat-badge">★ Top Rated</span>
+        <div class="feat-product">
+          <div class="jar">
+            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+            <div class="jt">Matcha</div>
+            <div class="js">Extreme</div>
+          </div>
+          <h3>Matcha Extreme</h3>
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          </div>
+          <div class="rating">4.8 / 5 — based on my experience</div>
+        </div>
+      </div>
+
+      <div class="feat-body">
+        <div class="cat">Energy · Metabolism · Wellness</div>
+        <h2>Matcha Extreme</h2>
+        <p>A premium matcha-based formula designed for clean, sustained energy and gentle metabolism support. It became my daily morning ritual — and the results surprised me.</p>
+        <ul class="feat-benefits">
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Steady all-day energy — no jitters, no mid-afternoon crash</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Supports metabolism and healthy weight management</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Rich in antioxidants — premium ceremonial-grade matcha</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Simple, pleasant daily ritual — easy to stick with</li>
+        </ul>
+        <div class="feat-ctas">
+          <a href="https://nplink.net/w4pyj9eu?subid=github" class="btn-primary" target="_blank" rel="noopener">
+            Visit official site
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="matcha-extreme.html" class="btn-ghost">Read my full review →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">All Reviews</div>
+      <h2>Every product I've tested</h2>
+      <p>Honest breakdowns of what works, what doesn't, and who each product is really for.</p>
+    </div>
+
+    <div class="grid">
+      <a href="matcha-extreme.html" class="pcard m1 reveal">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></div>
+        <div class="ptag">Energy &amp; Focus</div>
+        <h3>Matcha Extreme</h3>
+        <p>Clean sustained energy, metabolism support, and antioxidants in one daily cup. My personal favorite.</p>
+        <span class="plink">Read review <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="fat-burn-active.html" class="pcard m2 reveal">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg></div>
+        <div class="ptag">Weight Management</div>
+        <h3>Fat Burn Active</h3>
+        <p>A natural thermogenic formula designed to support fat metabolism alongside a balanced diet and exercise.</p>
+        <span class="plink">Read review <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="bulk-extreme.html" class="pcard m3 reveal">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></div>
+        <div class="ptag">Fitness &amp; Muscle</div>
+        <h3>Bulk Extreme</h3>
+        <p>Supports muscle growth, workout performance, and faster recovery for anyone training consistently.</p>
+        <span class="plink">Read review <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a href="african-mango.html" class="pcard m4 reveal">
+        <div class="picon"><svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 9 6 13a6 6 0 0012 0c0-4-2-7-6-11z"/></svg></div>
+        <div class="ptag">Natural Weight Support</div>
+        <h3>African Mango</h3>
+        <p>Made from African mango seed extract — a natural supplement to support appetite and weight management.</p>
+        <span class="plink">Read review <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="about reveal">
+      <div class="about-grid">
+        <div class="avatar">M</div>
+        <div>
+          <blockquote>"I started this site because I was tired of fake reviews and overhyped products. I test everything myself — and I only write about what genuinely made a difference."</blockquote>
+          <div class="who"><strong>Mohammed</strong> · Founder &amp; Lead Reviewer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <h2>Start your wellness journey today</h2>
+      <p>Not sure where to begin? Start with my top-rated pick — it's the one I use every single morning.</p>
+      <a href="https://nplink.net/w4pyj9eu?subid=github" class="btn-primary" target="_blank" rel="noopener">
+        Try Matcha Extreme
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+          </span>
+          Pure Vitality
+        </a>
+        <p>Honest reviews of natural wellness products. Tested personally, shared transparently.</p>
+      </div>
+      <div>
+        <h4>Reviews</h4>
+        <ul>
+          <li><a href="matcha-extreme.html">Matcha Extreme</a></li>
+          <li><a href="fat-burn-active.html">Fat Burn Active</a></li>
+          <li><a href="bulk-extreme.html">Bulk Extreme</a></li>
+          <li><a href="african-mango.html">African Mango</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#featured">Top Pick</a></li>
+          <li><a href="#reviews">All Reviews</a></li>
+          <li><a href="#about">About Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This website contains affiliate links. If you purchase a product through these links, I may earn a small commission at no additional cost to you. All reviews are based on my personal experience and honest opinion. Results may vary from person to person. These products are not intended to diagnose, treat, cure, or prevent any disease, and are not a substitute for professional medical advice. Always consult your healthcare provider before starting any new supplement.
+    </div>
+    <div class="copyright">© 2026 Pure Vitality. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // nav shadow on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>20){ nav.style.boxShadow='0 4px 20px rgba(30,61,47,.1)'; }
+    else{ nav.style.boxShadow='none'; }
+  },{passive:true});
+</script>
 </body>
 </html>
