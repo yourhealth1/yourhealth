@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Wellness & Health Products | Honest Reviews</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f0f8f0; color: #333; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; padding: 40px 20px; text-align: center; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card h2 { color: #2E7D32; margin-bottom: 12px; font-size: 1.3rem; }
+        .product-card p { color: #666; margin-bottom: 15px; }
+        .btn { display: inline-block; background: #4CAF50; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .btn:hover { background: #45a049; }
+        .disclaimer { margin-top: 50px; padding: 20px; background: #e8f5e9; border-radius: 8px; font-size: 0.9rem; color: #555; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌿 Natural Wellness & Honest Reviews</h1>
+        <p class="subtitle">Real experiences with products that support your health journey</p>
+    </header>
+
+    <div class="container">
+        <div class="products-grid">
+            
+            <!-- Matcha Extreme -->
+            <div class="product-card">
+                <h2>🍵 Matcha Extreme</h2>
+                <p>Clean steady energy all day, metabolism support, rich in antioxidants.</p>
+                <a href="matcha-extreme.html" class="btn">Read My Review →</a>
+            </div>
+
+            <!-- Fat Burn Active -->
+            <div class="product-card">
+                <h2>🔥 Fat Burn Active</h2>
+                <p>Natural weight management support, boosts metabolism gently.</p>
+                <a href="fat-burn-active.html" class="btn">Read My Review →</a>
+            </div>
+
+            <!-- Bulk Extreme -->
+            <div class="product-card">
+                <h2>💪 Bulk Extreme</h2>
+                <p>Supports muscle building, workout performance & recovery.</p>
+                <a href="bulk-extreme.html" class="btn">Read My Review →</a>
+            </div>
+
+            <!-- African Mango -->
+            <div class="product-card">
+                <h2>🥭 African Mango</h2>
+                <p>Supports healthy weight management & natural fat metabolism.</p>
+                <a href="african-mango.html" class="btn">Read My Review →</a>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This page contains affiliate links — if you purchase, I earn a small commission at no extra cost to you. Results may vary. Not a substitute for professional medical advice.</p>
+        </div>
+    </div>
+</body>
+</html>
