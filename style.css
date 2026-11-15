@@ -67,6 +67,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:al
 .p-ring.fatburn{background:conic-gradient(from 140deg,#9c4230,#e07a5f,#f0c9a8,#9c4230)}
 .p-ring.bulk{background:conic-gradient(from 140deg,#2c4560,#6b8cae,#c9d8e8,#2c4560)}
 .p-ring.mango{background:conic-gradient(from 140deg,#a86a2e,#e8a87c,#f5dfc0,#a86a2e)}
+.pcard.m5 .picon{background:linear-gradient(135deg,#6bb8c9,#2e7d8c)}
+
 .float-card{position:absolute;background:var(--white);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:10px;animation:float 5s ease-in-out infinite}
 .float-card .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
 .float-card .ic svg{width:18px;height:18px;fill:white}
